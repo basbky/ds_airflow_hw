@@ -67,7 +67,7 @@ def create_features(df: pd.DataFrame) -> pd.DataFrame:
 
 
 def pipeline() -> None:
-    df = pd.read_csv(f"/home/nikita/airflow_hw/data/train/homework.csv")
+    df = pd.read_csv(f"/home/mark/airflow_hw/data/train/homework.csv")
 
     X = df.drop("price_category", axis=1)
     y = df["price_category"]
@@ -126,7 +126,7 @@ def pipeline() -> None:
     )
 
     best_pipe.fit(X, y)
-    model_filename = f'/home/nikita/airflow_hw/data/models/cars_pipe_{datetime.now().strftime("%Y%m%d%H%M")}.pkl'
+    model_filename = f'/home/mark/airflow_hw/data/models/cars_pipe_{datetime.now().strftime("%Y%m%d%H%M")}.pkl'
 
     with open(model_filename, "wb") as file:
         dill.dump(best_pipe, file)
